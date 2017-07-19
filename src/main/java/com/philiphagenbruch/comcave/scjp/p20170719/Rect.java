@@ -28,4 +28,9 @@ public class Rect {
         this.width = width;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " " + width + " " + height;
+    }
+
 }

@@ -18,4 +18,9 @@ public class Circle {
         this.diam = diam;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " " + diam;
+    }
+
 }
