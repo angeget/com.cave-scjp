@@ -17,7 +17,7 @@ public class AufgabeScanner {
         SUBSTRACT("-", (a, b) -> a - b),
         MULTIPLY("*", (a, b) -> a * b),
         DIVIDE("/", (a, b) -> a / b),
-        POWER("P", (a, b) -> Math.pow(a, b));
+        POWER("P", Math::pow);
 
         private static final Map<String, Operator> byChar = new HashMap<>();
         static {
