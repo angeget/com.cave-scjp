@@ -6,53 +6,20 @@ import java.util.Scanner;
 
 public class AufgabeScanner {
 
+    @FunctionalInterface
     private interface Operation {
 
         double perform(double a, double b);
     }
 
     private enum Operator {
-        ADD("+", new Operation() {
+        ADD("+", (a, b) -> a + b),
+        SUBSTRACT("-", (a, b) -> a - b),
+        MULTIPLY("*", (a, b) -> a * b),
+        DIVIDE("/", (a, b) -> a / b),
+        POWER("P", (a, b) -> Math.pow(a, b));
 
-            @Override
-            public double perform(final double a, final double b) {
-                return a + b;
-            };
-        }),
-
-        SUBSTRACT("-", new Operation() {
-
-            @Override
-            public double perform(final double a, final double b) {
-                return a - b;
-            };
-        }),
-
-        MULTIPLY("*", new Operation() {
-
-            @Override
-            public double perform(final double a, final double b) {
-                return a * b;
-            };
-        }),
-
-        DIVIDE("/", new Operation() {
-
-            @Override
-            public double perform(final double a, final double b) {
-                return a / b;
-            };
-        }),
-
-        POWER("P", new Operation() {
-
-            @Override
-            public double perform(final double a, final double b) {
-                return Math.pow(a, b);
-            };
-        });
-
-        private static final Map<String, Operator> byChar = new HashMap<String, Operator>();
+        private static final Map<String, Operator> byChar = new HashMap<>();
         static {
             for (final Operator v : values()) {
                 byChar.put(v.operatorChar, v);
