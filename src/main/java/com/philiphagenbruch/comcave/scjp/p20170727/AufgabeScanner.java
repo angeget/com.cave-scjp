@@ -36,6 +36,14 @@ public class AufgabeScanner {
             };
         }),
 
+        DIVIDE("/", new Operation() {
+
+            @Override
+            public double perform(final double a, final double b) {
+                return a / b;
+            };
+        }),
+
         POWER("P", new Operation() {
 
             @Override
