@@ -12,6 +12,10 @@ public class PersonComparator implements Comparator<Person> {
             c = o1.getFirstName().compareTo(o2.getFirstName());
         }
 
+        if (c == 0) {
+            c = o1.getYearOfBirth() - o2.getYearOfBirth();
+        }
+
         return c;
     }
 

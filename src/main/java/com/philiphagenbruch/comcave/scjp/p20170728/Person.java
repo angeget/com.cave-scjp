@@ -6,12 +6,14 @@ public class Person implements Comparable<Person> {
 
     private String firstName;
     private String lastName;
+    private int yearOfBirth;
 
     public Person() {}
 
-    public Person(final String firstName, final String lastName) {
+    public Person(final String firstName, final String lastName, final int yearOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.yearOfBirth = yearOfBirth;
     }
 
     @Override
@@ -27,6 +29,10 @@ public class Person implements Comparable<Person> {
         return lastName;
     }
 
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
     public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
@@ -35,9 +41,13 @@ public class Person implements Comparable<Person> {
         this.lastName = lastName;
     }
 
+    public void setYearOfBirth(final int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
     @Override
     public String toString() {
-        return "Person [firstName=" + firstName + ", lastName=" + lastName + "]";
+        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", yearOfBirth=" + yearOfBirth + "]";
     }
 
 }
