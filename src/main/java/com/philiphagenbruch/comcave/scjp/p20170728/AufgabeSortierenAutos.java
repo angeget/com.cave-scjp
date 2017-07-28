@@ -17,6 +17,14 @@ public class AufgabeSortierenAutos {
             System.out.println(cars[i]);
         }
 
+        System.out.println();
+
+        Arrays.sort(cars, new CarManufacturerNameLengthComparator());
+
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i]);
+        }
+
     }
 
 }
