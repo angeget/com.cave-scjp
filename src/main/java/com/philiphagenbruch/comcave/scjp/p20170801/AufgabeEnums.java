@@ -2,8 +2,6 @@ package com.philiphagenbruch.comcave.scjp.p20170801;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -15,14 +13,6 @@ public class AufgabeEnums {
         KAFFEE(1.0f),
         CAPPUCCINO(1.2f),
         ESPRESSO(1.13f);
-
-        private static final Map<String, CoffeeType> byName = new HashMap<>();
-
-        static {
-            for (final CoffeeType v : values()) {
-                byName.put(v.name(), v);
-            }
-        }
 
         private final float price;
 
@@ -42,14 +32,6 @@ public class AufgabeEnums {
         CENT_50(0.5f),
         EURO_1(1.0f),
         EURO_2(2.0f);
-
-        private static final Map<String, Coin> byName = new HashMap<>();
-
-        static {
-            for (final Coin v : values()) {
-                byName.put(v.name(), v);
-            }
-        }
 
         private final float value;
 
@@ -82,7 +64,7 @@ public class AufgabeEnums {
         CoffeeType choice = null;
         while (choice == null) {
             System.out.print("Sorte wählen: ");
-            choice = CoffeeType.byName.get(sc.next().toUpperCase());
+            choice = CoffeeType.valueOf(sc.next().toUpperCase());
         }
 
         System.out.println("\nAkzeptierte Münzen:");
@@ -94,7 +76,7 @@ public class AufgabeEnums {
         while (unpaid > 0f) {
             System.out.println("\nZu zahlen: " + unpaid);
             System.out.print("Münze einwerfen: ");
-            final Coin coin = Coin.byName.get(sc.next().toUpperCase());
+            final Coin coin = Coin.valueOf(sc.next().toUpperCase());
 
             if (coin == null) {
                 continue;
